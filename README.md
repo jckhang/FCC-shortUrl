@@ -1,6 +1,6 @@
 # API Basejump: URL Shortener Microservice for FCC
 
-Heroku app: linksh.herokuapp.com
+Heroku app: http://linksh.herokuapp.com
 
 ### User Stories:
 
