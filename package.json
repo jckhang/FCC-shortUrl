@@ -3,24 +3,24 @@
   "version": "1.0.0",
   "description": "URL shortener",
   "main": "server.js",
-  "dependencies": {
-    "express": "^4.13.3",
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jckhang/linksh.git"
   },
   "keywords": [
-    "URL",
-    "shorterner"
+    "URL"
   ],
-  "author": "Yuxiang Zhang (jckhang)",
+  "author": "Yuxiang Zhang",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jckhang/linksh/issues"
   },
-  "homepage": "https://github.com/jckhang/linksh#readme"
+  "homepage": "https://github.com/jckhang/linksh#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
