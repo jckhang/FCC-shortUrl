@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/jckhang/linksh#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "shortid": "^2.2.4"
   }
 }
