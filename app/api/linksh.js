@@ -51,7 +51,7 @@ module.exports = function(app, db) {
                 // we have a result
                 console.log('Found ' + result);
                 console.log('Redirecting to: ' + result.original_url);
-                res.redirect(result.original_url);
+                res.redirect("https://"+result.original_url);
             } else {
                 // we don't
                 res.send('Site not found');
