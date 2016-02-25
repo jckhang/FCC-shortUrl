@@ -1,11 +1,11 @@
 'use strict';
 module.exports = function(app, db) {
 
-    app.get('/:url', function(req, res) {
-        var url = process.env.APP_URL + req.params.url;
-        console.log(url);
-        if (url != process.env.APP_URL + 'favicon.ico') {
-            findURL(url, db, res);
+    app.get('/:name', function(req, res) {
+        var name = req.params.name;
+        console.log(name);
+        if (name != 'favicon.ico') {
+            findURL(name, db, res);
         }
     })
 
@@ -16,12 +16,11 @@ module.exports = function(app, db) {
         var urlObj = {};
         urlObj = {
             "original_url": url,
-            "short_url": process.env.APP_URL + name
+            "name": name
         };
         console.log(name);
         console.log(url);
-        res.send(urlObj)
-
+        res.send(urlObj);
         save(urlObj, db);
     });
 
@@ -36,13 +35,13 @@ module.exports = function(app, db) {
         });
     }
 
-    function findURL(link, db, res) {
+    function findURL(name, db, res) {
         // Check to see if the site is already there
         var sites = db.collection('sites');
-        console.log(link);
+        console.log(name);
         // get the url
         sites.findOne({
-            "short_url": link
+            "name": name
         }, function(err, result) {
             if (err) throw err;
             console.log(result);
