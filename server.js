@@ -7,7 +7,7 @@ require('dotenv').config({
   silent: true
 });
 var app = express();
-mongo.MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/url-shortener', function(err, db) {
+mongo.MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/linksh', function(err, db) {
 
   if (err) {
     throw new Error('Database failed to connect!');

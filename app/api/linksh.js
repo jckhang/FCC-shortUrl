@@ -1,9 +1,13 @@
 'use strict';
 module.exports = function(app, db) {
 
-    // app.route('/:url')
-    //     // Check and retrieve url to redirect if it exist.
-    //     .get(handleGet);
+    app.get('/:url', function(req, res) {
+        var url = process.env.APP_URL + req.params.url;
+        console.log(url);
+        if (url != process.env.APP_URL + 'favicon.ico') {
+            findURL(url, db, res);
+        }
+    })
 
 
     app.get('/api/linksh', function(req, res) {
@@ -21,12 +25,6 @@ module.exports = function(app, db) {
         save(urlObj, db);
     });
 
-    function handleGet(req, res) {
-        var url = process.env.APP_URL + req.params.url;
-        if (url != process.env.APP_URL + 'favicon.ico') {
-            findURL(url, db, res);
-        }
-    }
 
 
     function save(obj, db) {
@@ -41,11 +39,13 @@ module.exports = function(app, db) {
     function findURL(link, db, res) {
         // Check to see if the site is already there
         var sites = db.collection('sites');
+        console.log(link);
         // get the url
         sites.findOne({
             "short_url": link
         }, function(err, result) {
             if (err) throw err;
+            console.log(result);
             // object of the url
             if (result) {
                 // we have a result
